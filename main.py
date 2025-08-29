@@ -16,7 +16,10 @@ def main() -> None:
         skills_data = race_data["skills"]
 #        print(player_data)
 
-        race,_ = Race.objects.get_or_create(name=race_data["name"], description=race_data["description"])
+        race, _ = Race.objects.get_or_create(
+            name=race_data["name"],
+            description=race_data["description"]
+        )
 
         for skill in skills_data:
             Skill.objects.get_or_create(
@@ -39,6 +42,7 @@ def main() -> None:
             race=race,
             guild=guild
         )
+
 
 if __name__ == "__main__":
     main()
